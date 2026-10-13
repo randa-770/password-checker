@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Strength Checker</title>
+</head>
+<body>
+  <h1>Password Strength Checker</h1>
+  <p>Test the strength of a sample password.</p>
+
+  <input type="password" id="password" placeholder="Enter a sample password">
+  <button onclick="checkPassword()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const result = document.getElementById("result");
+
+      if (password.length < 8) {
+        result.textContent = "Weak password";
+      } else if (!/[A-Z]/.test(password) ||
+                 !/[a-z]/.test(password) ||
+                 !/[0-9]/.test(password)) {
+        result.textContent = "Add uppercase, lowercase, and numbers";
+      } else {
+        result.textContent = "Stronger password";
+      }
+    }
+  </script>
+</body>
+</html>
